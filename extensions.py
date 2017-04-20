@@ -5,7 +5,7 @@ import os
 
 
 URL_PREFIX = '/timeline'
-'''
+
 def connect_to_database():
   options = {
     'host': config.env['host'],
@@ -20,4 +20,3 @@ def connect_to_database():
 
 
 db = connect_to_database()
-'''

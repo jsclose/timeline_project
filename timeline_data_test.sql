@@ -1,0 +1,1 @@
+insert into Timeline values(1996, 3, 27, 'Jakes Birthday', 'This was the day and year that I was born', 'https://photos.zillowstatic.com/p_h/ISm2wcggog9dd90000000000.jpg', 'Picture of my house' , '' )

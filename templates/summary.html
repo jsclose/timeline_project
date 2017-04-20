@@ -1,7 +1,7 @@
 
 {% extends "base.html" %}
 {% block content %}
-	<button type="button" onclick="location.href='http://localhost:3001/timeline/form'" class="btn btn-lg btn-info">Back to Form</button>					
+	<button type="button" onclick="location.href='http://localhost:3000/timeline/form'" class="btn btn-lg btn-info">Back to Form</button>					
 
 	
 		 <!-- 1 -->
@@ -21,12 +21,29 @@
         // and the element must have CSS styling to give it width and height
         // optionally, a third argument with configuration options can be passed.
         // See below for more about options.
-        timeline = new TL.Timeline('timeline-embed',
-          'https://docs.google.com/spreadsheets/d/1cWqQBZCkX9GpzFtxCWHoqFXCHg-ylTVUWlnrdYMzKUI/pubhtml');
-/*
-         timeline = new TL.Timeline('timeline-embed',
-          '../json/houston.json');
-*/
+
+
+         var get_timeline = function () {
+            $.ajax({
+                url: '/timeline/api/json',
+                success: function (response) {
+                   
+                    timeline = new TL.Timeline('timeline-embed',
+          response);
+                }
+            });
+        };
+ 
+        get_timeline();
+
+
+       // timeline = new TL.Timeline('timeline-embed',
+       //   'https://docs.google.com/spreadsheets/d/1cWqQBZCkX9GpzFtxCWHoqFXCHg-ylTVUWlnrdYMzKUI/pubhtml');
+
+         
+
+
+
       </script>
 
 {% endblock %}

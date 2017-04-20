@@ -9,12 +9,15 @@
 
         */
 $(function () {
-    
+  console.log("spotify");
+
+
+
         var fetchTracks = function (albumId, callback) {
             $.ajax({
                 url: 'https://api.spotify.com/v1/albums/' + albumId,
                 success: function (response) {
-                    callback(response);
+                    console.log(response);
                 }
             });
         };
@@ -31,13 +34,21 @@ $(function () {
                 }
             });
         };
- 
-        document.getElementById('search-form').addEventListener('submit', function (e) {
-            e.preventDefault();
-            searchAlbums(document.getElementById('query').value);
+        /*
+        $('#search').on('click', function () {
+            console.log("clicked");
+            search_query = $('#query').value;
+            console.log(search_query);
+            searchAlbums('king kunta');
+            
+
+        });
+        */
+         $('#search').on('click', function () {
+           console.log("submit")
+           console.log
+            searchAlbums($('#query').value);
+        });
 
 
-        }, false);
-
-
-    }
+});
