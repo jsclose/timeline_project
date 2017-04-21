@@ -32,17 +32,17 @@ def form_route():
 def song_route():
     print("song route")
 
-    val = request.args.to_dict()
+    val = request.args.to_dict()['query']
     print (val)
     
     if val:
-        song = val['query']
+        song = val
         song = song.replace(" ", "+")
         print(song)
         url = 'https://api.spotify.com/v1/search?q=' + song + '&type=track'
-        print(url)
         json_obj = urllib2.urlopen(url)
         data = json.load(json_obj)
+
 
         #print(data['tracks']['items'][0])
         #gives albums

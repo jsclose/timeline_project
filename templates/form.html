@@ -4,7 +4,10 @@
 
 
 <div class="container">
-    <h1 class="well">User Event Form</h1>
+
+	<h1 class="well">The Timeline Project</h1>
+	<p class= "Description"> I beleive that music has the ability to transport you to another moment in time. Our lives our deeply connected in rooted in sounds and visions, often intertwined in one. I created this project to visualize how people can travel back in time to a old memory and sound. Below, remind yourself of an event or time that is connected with a particular song. Search for that song, then fill out a headline, the date (doesn't have to be super accurate), and a brief description.
+    <h5 class="well">User Event Form</h5>
 	<div class="col-lg-12 well">
 	<div class="row">
 
@@ -59,10 +62,11 @@
 				</div>
 
 
-<div class="container">
 
-    <h1>Search for an Track-Spotify</h1>
-    <p>Type an track name or artist name and click on "Search". Then, type that song id into the form above.</p>
+<div class="container">
+	
+    <h1>Search for an Track on Spotify</h1>
+    <p>Type an track name or artist name and click on "Search". The program will automatically fill in the correct info when done. Add more information to the query if you do not find the right one</p>
    <!--
         <input type="text" id="query" value="" class="form-control" placeholder="Type an Track Name"/>
         <button id="search" class="btn btn-primary"  > Search </button>
@@ -71,13 +75,12 @@
 
      <form id="search-form" action = {{url_for('search.song_route')}}>
         <input type="text" id="query" name ='query' value="" class="form-control" />
-        <input type="submit" id="search" class="btn btn-primary" value="Search" />
+        <input type="submit" id="search" class="btn btn-lg btn-info" value="Search" />
     </form>
     
     <div id="results">
         <h1 id= "Artist"> {{artist}} </h1>
         <h4 id= "track"> {{track}} </h4>
-        <p>Copy this url into the form on the next</p>
         <p id="url" >{{url}} </p>
         <img src = {{image}} > </img>
        <!-- <button id="preview" href= {{preview}} > {{preview}} </button> -->
@@ -102,8 +105,6 @@
 	</div>
 	</div>
 
-
-<button type="button" onclick="location.href='http://localhost:3000/timeline/song'" class="btn btn-lg btn-info">Back Search for a Song</button>					
 
 
 

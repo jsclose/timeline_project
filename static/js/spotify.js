@@ -64,7 +64,9 @@ $(function () {
         });
 
 
-         $('#go_to_form').on(click)
+         $('#go_to_form').on(click), function(){
+            
+         }
 
 
 });
