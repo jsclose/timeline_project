@@ -2,6 +2,7 @@ from flask import *
 from extensions import *
 import requests
 import json
+import urllib2
 
 search = Blueprint('search', __name__, template_folder='templates', url_prefix=URL_PREFIX)
 
@@ -26,5 +27,39 @@ def form_route():
     return render_template("form.html")
 
 
+
+@search.route('/song', methods = ['POST', 'GET'])
+def song_route():
+    print("song route")
+
+    val = request.args.to_dict()
+    print (val)
+    
+    if val:
+        song = val['query']
+        song = song.replace(" ", "+")
+        print(song)
+        url = 'https://api.spotify.com/v1/search?q=' + song + '&type=track'
+        print(url)
+        json_obj = urllib2.urlopen(url)
+        data = json.load(json_obj)
+
+        #print(data['tracks']['items'][0])
+        #gives albums
+        print(data['tracks']['items'][0]['artists'][0]['external_urls']['spotify'])
+        artist = data['tracks']['items'][0]['artists'][0]['name']
+        #url = data['tracks']['items'][0]['artists'][0]['external_urls']['spotify']
+        url = data['tracks']['items'][0]['external_urls']['spotify']
+        print(url)
+        image = data['tracks']['items'][0]['album']['images'][0]['url']
+        preview = data['tracks']['items'][0]['preview_url']
+        print(image)
+        album = data['tracks']['items'][0]['name']
+        
+    
+   
+        return render_template("spotify_search.html", preview = preview, url = url, image = image, artist = artist, album = album)
+
+    return render_template("spotify_search.html")
 
 

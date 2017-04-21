@@ -23,14 +23,27 @@ $(function () {
         };
 
         var searchAlbums = function (query) {
+            query = "king kunta";
+            //console.log("searching:" + query);
             $.ajax({
                 url: 'https://api.spotify.com/v1/search',
+                contentType: "application/json",
+                crossOrigin: true,
                 data: {
                     q: query,
                     type: 'track'
+                     
                 },
+               
                 success: function (response) {
+                    console.log("Success");
                     console.log(response)
+                },
+                error: function (response) {
+                    console.log("Failed");
+                    console.log(response);
+
+
                 }
             });
         };
@@ -44,10 +57,10 @@ $(function () {
 
         });
         */
-         $('#search').on('click', function () {
+         $('#search-form').on('submit', function () {
            console.log("submit")
-           console.log
-            searchAlbums($('#query').value);
+           console.log($('#query').value);
+           searchAlbums($('#query').value);
         });
 
 
