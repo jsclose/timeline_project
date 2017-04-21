@@ -40,15 +40,15 @@
 						<div class="row">
 							<div class="col-sm-4 form-group">
 								<label>Song ID</label>
-								<input type="text" placeholder="Enter SongID Here.." class="form-control" name = "songid">
+								<input type="text" placeholder="Enter SongID Here.." class="form-control" name = "songid" value = {{url}}>
 							</div>		
 							<div class="col-sm-4 form-group">
 								<label>Song Name</label>
-								<input type="text" placeholder="Enter Song Name Here.." class="form-control" name = "songname">
+								<input type="text" placeholder="Enter Song Name Here.." class="form-control" name = "songname" value ={{track}}>
 							</div>	
 							<div class="col-sm-4 form-group">
 								<label>Caption</label>
-								<input type="text" placeholder="Enter Song Name Here.." class="form-control" name = "caption">
+								<input type="text" placeholder="Enter Arist Name Here.." class="form-control" name = "caption" value = {{artist}}>
 							</div>	
 						</div>						
 					
@@ -57,8 +57,51 @@
 				</form> 
 				<button type="button"  onclick="location.href='http://localhost:3000/timeline/summary'"  class="btn btn-lg btn-info"> Go To Timeline</button>	
 				</div>
+
+
+<div class="container">
+
+    <h1>Search for an Track-Spotify</h1>
+    <p>Type an track name or artist name and click on "Search". Then, type that song id into the form above.</p>
+   <!--
+        <input type="text" id="query" value="" class="form-control" placeholder="Type an Track Name"/>
+        <button id="search" class="btn btn-primary"  > Search </button>
+   
+   -->
+
+     <form id="search-form" action = {{url_for('search.song_route')}}>
+        <input type="text" id="query" name ='query' value="" class="form-control" />
+        <input type="submit" id="search" class="btn btn-primary" value="Search" />
+    </form>
+    
+    <div id="results">
+        <h1 id= "Artist"> {{artist}} </h1>
+        <h4 id= "track"> {{track}} </h4>
+        <p>Copy this url into the form on the next</p>
+        <p id="url" >{{url}} </p>
+        <img src = {{image}} > </img>
+       <!-- <button id="preview" href= {{preview}} > {{preview}} </button> -->
+
+        
+    </div>
+
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
 	</div>
 	</div>
+
 
 <button type="button" onclick="location.href='http://localhost:3000/timeline/song'" class="btn btn-lg btn-info">Back Search for a Song</button>					
 

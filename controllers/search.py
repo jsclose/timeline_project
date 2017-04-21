@@ -54,12 +54,12 @@ def song_route():
         image = data['tracks']['items'][0]['album']['images'][0]['url']
         preview = data['tracks']['items'][0]['preview_url']
         print(image)
-        album = data['tracks']['items'][0]['name']
-        
+        track = data['tracks']['items'][0]['name']
+
     
    
-        return render_template("spotify_search.html", preview = preview, url = url, image = image, artist = artist, album = album)
+        return render_template("form.html", preview = preview, url = url, image = image, artist = artist, track = track)
 
-    return render_template("spotify_search.html")
+    return render_template("form.html")
 
 
